@@ -1,77 +1,50 @@
-/* For styling the rendered Markdown */
-* {
-  margin: 0;
-  padding: 0
-}
-
-:root {
-  --control-text-color: #777;
-  --select-text-bg-color: rgba(223, 197, 223);
-  /*#7e66992e;*/
-  --search-select-bg-color: #8163bd;
-
-  /* side bar */
-  --side-bar-bg-color: #f7f7fb;
-  --active-file-text-color: #8163bd;
-  --active-file-bg-color: #e9e4f0;
-  --item-hover-bg-color: #e9e4f0;
-  --active-file-border-color: #8163bd;
+:root{
+  --title-font: "Noto Serif", "Noto Serif CJK SC", "EB Garamond", Georgia,
+  "Nimbus Roman No9 L", "Songti SC", "Source Han Serif SC",
+  "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun,
+  SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN",
+  "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU,
+  "Ubuntu", "Source Sans Pro", serif;
+  --monospace: "JetBrains Mono", "Fira Code", "Cascadia Code", "Sarasa Term SC",
+  Monaco, "Deja Vu Sans Mono", Consolas, "Lucida Console", "Andale Mono",
+  "Roboto Mono", Courier, Monospace !important;
 
   --title-color: #000000;
-  --text-color: #333333;
-  --light-text-color: #666666;
-
-  --base-font: "Helvetica Neue", "Noto Sans", -apple-system, Ubuntu,
-    "Microsoft YaHei", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans",
-    "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Source Han Sans SC",
-    "Source Han Sans CN", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti",
-    SimHei, "WenQuanYi Zen Hei Sharp", "Source Sans Pro", sans-serif;
-  --title-font: "Noto Serif", "Noto Serif CJK SC", "EB Garamond", Georgia,
-    "Nimbus Roman No9 L", "Songti SC", "Source Han Serif SC",
-    "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun,
-    SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN",
-    "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU,
-    "Ubuntu", "Source Sans Pro", serif;
-  --monospace: "JetBrains Mono", "Fira Code", "Cascadia Code", "Sarasa Term SC",
-    Monaco, "Deja Vu Sans Mono", Consolas, "Lucida Console", "Andale Mono",
-    "Roboto Mono", Courier, Monospace !important;
-
-  --link-color: rgb(56, 132, 255);
   --bold-color: #745fb5
-    /* #8163bd */
-  ;
-  --code-color: #ff79c6;
-  --purple-4: #bb60d5;
-  --purple-light-1: rgba(99, 99, 172, 0.05);
-  --purple-light-2: rgba(99, 99, 172, 0.1);
-  --purple-light-3: rgba(99, 99, 172, 0.2);
-  --purple-light-4: rgba(129, 99, 189, 0.3);
-  --purple-light-5: #e9e4f0;
-  --purple-light-6: rgba(129, 99, 189, 0.7);
-  --purple-light-7: rgba(129, 99, 189, 0.3);
-  --shadow: var(--purple-light-3) 0px 5px 10px;
-  --border: #eee;
-  --fence-border: var(--border);
-  --table-border: #ddd;
-  --boxes: #f0eef5;
 }
 
 body {
-  font-size: 15px;
-  font-family: var(--base-font);
-  padding-left: 5%;
-  padding-right: 5%;
+  padding: 0 10px;
 }
 
-a {
-  color: var(--link-color) !important;
-  text-decoration: none !important;
+/* 剔除目录前面的点 */
+.table-of-contents ul li {
+  list-style: none;
 }
 
-ul li {
-  list-style: none !important;
+/* 剔除 a 的下划线 */
+ul li a {
+  text-decoration: none;
 }
 
+/* 表格居中对齐 */
+table {
+  /* margin: 0 auto; */
+  width: 100%;
+}
+
+/* 图片居中对齐 */
+p img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* 代码行高 */
+.hljs {
+  line-height: 1.2em !important;
+}
+
+/* 标题 */
 h1,
 h2,
 h3,
@@ -80,16 +53,14 @@ h5,
 h6 {
   margin-bottom: 20px !important;
   font-weight: bold;
-  color: var(--title-color);
   font-family: var(--title-font);
-  border-bottom: 0 !important;
+  border-bottom: none !important;
 }
 
 h1 {
   position: relative;
   text-align: center;
-  font-size: 2em !important;
-  margin-bottom: 40px !important;
+  font-size: 1.8em !important;
 }
 
 h1::after {
@@ -107,106 +78,37 @@ h2 {
   padding-left: 5px;
   /* border-left: 5px solid var(--title-color); */
   border-bottom: 1px solid var(--title-color) !important;
-  font-size: 1.8em !important;
   margin-bottom: 30px !important;
   margin-top: 40px !important;
+  font-size: 1.6em !important;
 }
+
 h3 {
-  font-size: 1.5em !important;
+  font-size: 1.4em !important;
 }
+
 h4 {
   font-size: 1.2em !important;
 }
-strong {
-  color: var(--bold-color) !important;
-}
 
-p em {
-  color: green !important;
-}
-
-em strong {
-  color: green !important;
-}
-
+/* 高亮 */
 p mark {
   background-color: rgb(255, 217, 255);
   border-radius: 2px;
   padding: 2px 4px;
   margin: 0 2px;
-  color: var(--text-color);
+  color: #333333;
 }
 
+/* 行内 code */
 .inline-code {
   padding: 2px 4px;
   font-family: var(--monospace);
-  color: var(--code-color) !important;
-  background-color: var(--purple-light-1) !important;
+  color:#ff79c6 !important;
+  background-color: rgba(99, 99, 172, 0.05) !important;
   border: none !important;
 }
 
-.table-of-contents>ul>li>a {
-  font-weight: bold !important;
-}
-
-/* 引用 */
-blockquote {
-  border-color: var(--purple-light-4) !important;
-  background: var(--purple-light-1) !important;
-  padding: 4px;
-}
-
-blockquote p {
-  padding-left: 8px;
-}
-
-table,
-table tr th,
-table tr td {
-  border: 1px solid var(--table-border) !important;
-}
-
-table {
-  border-collapse: collapse;
-  padding: 2px;
-}
-
-table thead th {
-  background: #f0eef5 !important;
-}
-
-table tr:nth-child(2n + 1) {
-  background: #fff !important;
-}
-
-table tr:nth-child(2n) {
-  background: #f7f7fb !important;
-}
-
-table tr:hover {
-  background: #f0eef5 !important;
-}
-
-.joplin-editable {
-  box-shadow: var(--shadow);
-}
-
-pre.md-fences {
-  box-shadow: var(--shadow);
-}
-
-.hljs code span {
-  height: 1em !important;
-  line-height: 1em !important;
-}
-
-/* 表格居中对齐 */
-table {
-  margin: 0 auto;
-}
-
-/* 图片居中对齐 */
-p img {
-  display: block;
-  margin: 0 auto;
+ol li::marker {
+  font-family: var(--title-font);
 }
