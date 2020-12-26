@@ -1,0 +1,132 @@
+:root{
+  /* --title-font: "Noto Serif", "Noto Serif CJK SC", "EB Garamond", Georgia,
+  "Nimbus Roman No9 L", "Songti SC", "Source Han Serif SC",
+  "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun,
+  SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN",
+  "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU,
+  "Ubuntu", "Source Sans Pro", serif; */
+  --title-font: "Vollkorn", Palatino, Times;
+  --monospace: "JetBrains Mono", "Fira Code", "Cascadia Code", "Sarasa Term SC",
+  Monaco, "Deja Vu Sans Mono", Consolas, "Lucida Console", "Andale Mono",
+  "Roboto Mono", Courier, Monospace !important;
+
+  --title-color: #000000;
+  --bold-color: #745fb5;
+  --link-color:#2484c1
+}
+
+body {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "Vollkorn", Palatino, Times;
+}
+
+/* 剔除目录前面的点 */
+.table-of-contents ul li {
+  list-style: none;
+}
+
+/* 剔除 a 的下划线 */
+ul li a {
+  text-decoration: none;
+}
+
+/* 表格居中对齐 */
+table {
+  /* margin: 0 auto; */
+  width: 100%;
+}
+
+/* 图片居中对齐 */
+p img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* 代码行高 */
+.hljs {
+  line-height: 1.2rem !important;
+}
+ a {
+   color: var(--link-color) !important;
+ }
+
+/* 标题 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 20px !important;
+  font-weight: normal !important;
+  border-bottom: none !important;
+  font-family: var(--title-font) !important;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem !important;
+  margin-top: 1.6rem !important;
+}
+
+
+h2 {
+  padding-left: 5px;
+  /* border-left: 5px solid var(--title-color); */
+  /* border-bottom: 1px solid var(--title-color) !important; */
+  font-size: 1.8rem !important;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  width: 6rem;
+  height: 1px;
+  background-color: var(--title-color);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+h3 {
+  font-size: 1.6rem !important;
+  font-style: italic;
+  font-weight: normal;
+  padding: 1rem 0;
+}
+
+h4 {
+  font-size: 1.2rem !important;
+}
+
+h1+h2, h2+h3 {
+  margin-top: 0.83rem;
+}
+
+/* 高亮 */
+p mark {
+  background-color: rgb(255, 217, 255);
+  border-radius: 2px;
+  padding: 2px 4px;
+  margin: 0 2px;
+  color: #333333;
+}
+
+/* 行内 code */
+.inline-code {
+  padding: 2px 4px;
+  font-family: var(--monospace);
+  color:#ff79c6 !important;
+  background-color: rgba(99, 99, 172, 0.05) !important;
+  border: none !important;
+}
+
+ol li::marker {
+  font-family: var(--title-font);
+}
