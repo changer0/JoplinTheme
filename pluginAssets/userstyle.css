@@ -16,8 +16,8 @@
 }
 
 body {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 12%;
+  padding-right: 12%;
   font-family: "Vollkorn", Palatino, Times;
 }
 
@@ -129,4 +129,8 @@ p mark {
 
 ol li::marker {
   font-family: var(--title-font);
+}
+/* 代码 */
+code {
+  font-size: 0.8em !important;
 }
